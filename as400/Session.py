@@ -10,7 +10,7 @@ __all__ = ["Session"]
 # Tunable parameters
 DEBUGLEVEL = 0
 # Telnet Port
-TELNET_PORT = 993
+TELNET_PORT = 23
 
 class Session:
     """Session interface class."""

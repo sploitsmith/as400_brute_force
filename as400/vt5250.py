@@ -300,8 +300,8 @@ class vt5250:
                     #self.eof = (not buffer)
                     #buffer = ''
                 j = i
-        if startOffset < idx:
-            self.loadStream(buffer[startOffset:idx])
+        #if startOffset < idx:
+           # self.loadStream(buffer[startOffset:idx])
 	#here1
         #print idx,startOffset,len(self.buffer)
         self.buffer = ''

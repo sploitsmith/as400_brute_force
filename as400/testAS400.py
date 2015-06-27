@@ -75,13 +75,15 @@ if __name__ == '__main__':
     else:
  	if options.hostIP and options.portNo:
     		userList=[]
-    		userList.append(('QSECOFR','QSECOFR'))
-    		userList.append(('QPGWR','QPGWR'))
-    		userList.append(('QUSER','QUSER'))
-    		userList.append(('QSYSOFR','QSYSOFR'))
-    		userList.append(('QSRVBAS','QSRVBAS'))
-    		userList.append(('QSRV','QSRV'))
-    		userList.append(('QDFTOWN','QDFTOWN'))
+			
+    		file = open("as400_users.txt")
+
+    		while 1:
+				line = file.readline()
+				if not line:
+					break
+				# do something
+				userList.append((line.split(";")))
 
 		host = options.hostIP
 
@@ -90,8 +92,8 @@ if __name__ == '__main__':
 			ts.USERID = user[0]
         		ts.PASSWORD = user[1]
 			print "\n[*] Testing ("+user[0]+"|"+user[1]+")"
-    			session = Session.Session(host)
-			session.setPort = options.portNo
+			session = Session.Session(host,options.portNo) #changed sploitsmith
+			#session.setPort = options.portNo
     			session.set_debuglevel(0)
     			myScreen = session.getScreen()
     			session.getScreen().add_screen_listener(ts.outputScreen)
